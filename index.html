@@ -312,6 +312,11 @@
                 <div>
                     <a href="https://github.com/broadinstitute/SpliceAI-lookup/issues" target="_blank">SpliceAI-lookup/issues</a>: issues or feature requests for this website<br />
                     <br/>
+                    <b>June 27, 2025</b>
+                    <br />
+                    - added PromoterAI scores for promoters of all protein-coding transcripts in Gencode v39 (not just the canonical transcripts)<br/>
+                    - added PromoterAI scores for hg19<br/> 
+                    <br />
                     <b>December 5, 2024</b>
                     <br />
                     - add <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10187174/" target="_blank">PrimateAI-3D</a>, <a href="https://www.science.org/doi/10.1126/science.ads7373">PromoterAI</a>, <a href="https://www.science.org/doi/10.1126/science.adg7492" target="_blank">AlphaMissense</a> and other scores<br/>
@@ -846,8 +851,8 @@
     const { TabixIndexedFile } = window.gmodTABIX
 
     const primateAndPromoterAiTableUrls = {
-        '37': 'https://storage.googleapis.com/spliceai-lookup-reference-data/PrimateAI_3D.hg19.with_gene_thresholds.txt.gz',
-        '38': 'https://storage.googleapis.com/spliceai-lookup-reference-data/PrimateAI_and_PromoterAI_scores.hg38.tsv.gz',
+        '37': 'https://storage.googleapis.com/spliceai-lookup-reference-data/PrimateAI_and_PromoterAI_scores.hg19.20250627.tsv.gz',
+        '38': 'https://storage.googleapis.com/spliceai-lookup-reference-data/PrimateAI_and_PromoterAI_scores.hg38.20250627.tsv.gz',
     }
     const primateAndPromoterAiTables = {
         '37': new TabixIndexedFile({ url: primateAndPromoterAiTableUrls['37'], tbiUrl: `${primateAndPromoterAiTableUrls['37']}.tbi` }),
@@ -1578,7 +1583,6 @@
             tableRows.push(missingScoresRow)
         }
         $("#other-predictors-header").after(tableRows.join(""))
-
     }
 
     const updateTranscriptButtons = (category) => {
